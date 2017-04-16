@@ -24,7 +24,7 @@ public class TaskFragment extends BaseFragment implements TaskView {
 
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.fragment_task;
     }
 
     @Override

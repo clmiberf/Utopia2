@@ -1,123 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.socer.utopia2.mvp.ui.activities.HomeActivity">
+    <!--<com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager-->
+        <!--android:id="@+id/view_pager"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/home_layout_toolbar"
+    <!--</com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager>-->
+
+    <!--<com.aurelhubert.ahbottomnavigation.AHBottomNavigation-->
+        <!--android:id="@+id/bottom_nav"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:layout_height="wrap_content">-->
+
+    <!--</com.aurelhubert.ahbottomnavigation.AHBottomNavigation>-->
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="编辑"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:text="任务"
-                android:paddingRight="20dp"
-                android:layout_centerInParent="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/home_add_task"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_add_black_36dp"/>
+    </android.support.v4.view.ViewPager>
 
-        </RelativeLayout>
-
-    </android.support.v7.widget.Toolbar>
-
-
-    <LinearLayout
-        android:id="@+id/home_tab"
+    <me.majiajie.pagerbottomtabstrip.PageBottomTabLayout
+        android:id="@+id/tab"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:weightSum="4"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
-        <RelativeLayout
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/home_task"
-                android:drawableTop="@drawable/ic_description_black_24dp"
-                android:text="任务"
-                android:layout_centerVertical="true"
-                android:layout_centerInParent="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/home_discover"
-                android:layout_centerInParent="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/ic_explore_black_24dp"
-                android:text="发现" />
-        </RelativeLayout>
+        android:elevation="8dp"
+        android:layout_gravity="bottom"
+        android:layout_height="60dp">
 
+    </me.majiajie.pagerbottomtabstrip.PageBottomTabLayout>
 
-        <RelativeLayout
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/home_message"
-                android:text="消息"
-                android:layout_centerInParent="true"
-                android:drawableTop="@drawable/ic_textsms_black_24dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/home_mine"
-                android:text="我的"
-                android:layout_centerInParent="true"
-                android:drawableTop="@drawable/ic_insert_emoticon_black_24dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#f2f2f2"
-        android:layout_above="@+id/home_tab"/>
-    <FrameLayout
-        android:id="@+id/home_layout_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#f2f2f2"
-        android:layout_below="@+id/home_layout_toolbar"
-        android:layout_above="@+id/home_tab">
-    </FrameLayout>
-
-
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
