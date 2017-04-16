@@ -1,10 +1,13 @@
 package com.example.socer.utopia2.network;
 
+import com.example.socer.utopia2.mvp.model.beans.DisccoverMsgModelBean;
 import com.example.socer.utopia2.mvp.model.beans.TaskModelBean;
 import com.example.socer.utopia2.mvp.model.beans.UserInfoModelBean;
 import com.example.socer.utopia2.mvp.model.interfaces.TaskModelApi;
+import com.example.socer.utopia2.mvp.views.DiscoverHotView;
 import com.example.socer.utopia2.mvp.views.LoginView;
 import com.example.socer.utopia2.mvp.views.TaskView;
+import com.example.socer.utopia2.network.apis.DiscoverHotApi;
 import com.example.socer.utopia2.network.apis.LoginApi;
 import com.example.socer.utopia2.network.apis.TaskApi;
 import com.example.socer.utopia2.shared.NetManager;
@@ -29,6 +32,7 @@ public class HttpMethod {
 
     private LoginApi loginApi = null;
     private TaskApi taskApi = null;
+    private DiscoverHotApi discoverHotApi = null;
 
     private HttpMethod(){
         Retrofit retrofit = new Retrofit.Builder()
@@ -39,6 +43,7 @@ public class HttpMethod {
 
         loginApi = retrofit.create(LoginApi.class);
         taskApi = retrofit.create(TaskApi.class);
+        discoverHotApi = retrofit.create(DiscoverHotApi.class);
     }
 
     public static HttpMethod getInstance(){
@@ -76,7 +81,7 @@ public class HttpMethod {
     }
 
     public Subscription loadTaskList(String userId, TaskView view){
-        HttpResult<List<TaskModelBean>> result = new HttpResult<>();
+        HttpResult<List<TaskModelBean>> result = new HttpResult<List<TaskModelBean>>();
         List<TaskModelBean> data = new ArrayList<TaskModelBean>();
         TaskModelBean model = new TaskModelBean();
         List<String> persons = new ArrayList<String>();
@@ -114,7 +119,47 @@ public class HttpMethod {
         return null;
     }
 
+    public Subscription loadDiscoverHotMsgList(String userId, DiscoverHotView view){
+        HttpResult<List<DisccoverMsgModelBean>> result = new HttpResult<List<DisccoverMsgModelBean>>();
+        List<DisccoverMsgModelBean> data = new ArrayList<DisccoverMsgModelBean>();
+
+        DisccoverMsgModelBean model = new DisccoverMsgModelBean();
+        List<String> comments = new ArrayList<String>();
+        comments.add("可以很强势");
+        comments.add("二营长,你他娘的把老子的意大利...............妞拿来给这位兄弟玩玩");
+        comments.add("我过马路老奶奶都不扶就服你");
+        comments.add("大兄弟,你可以劝导广大女性同仁加入男科的队伍中.");
+        List<String> imageUrl = new ArrayList<String>();
+        imageUrl.add("http://img.my.csdn.net/uploads/201407/26/1406383291_8239.jpg");
+        imageUrl.add("http://img.my.csdn.net/uploads/201407/26/1406383290_9329.jpg");
+
+
+
+        model.setCommentSum(1000);
+        model.setLightenSum(3000);
+        model.setTopicTitle("终于轮到我了，我是在妇产科工作的男医生，有什么想问的吗？");
+        model.setTopicContent("2011年毕业于南方医科大学临床系，当初觉得身上肩负着拯救广" +
+                "大孕妇的责任而不顾家人的再三劝阻选择了南方医科大的妇产科，四年来兢兢业业努力学习，" +
+                "准备在妇产科这条路上闯出一条属于男性医生的路。");
+        model.setWhichTopic("医学");
+        model.setCommentList(comments);
+        model.setTopicImageList(imageUrl);
+
+        data.add(model);
+        data.add(model);
+        data.add(model);
+        data.add(model);
+        data.add(model);
+
+        result.setData(data);
+        view.initDiscoverHotMsgListView(data);
+        return null;
+    }
+
     public rx.Observable<HttpResult<List<TaskModelBean>>> getTaskListInfo(String userId){
         return taskApi.getTaskListInfo(userId);
+    }
+    public rx.Observable<HttpResult<List<DisccoverMsgModelBean>>> getDiscoverHotListInfo(String userId){
+        return discoverHotApi.getDiscoverHotListInfo(userId);
     }
 }
