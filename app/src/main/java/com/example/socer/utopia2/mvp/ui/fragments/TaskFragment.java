@@ -10,13 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.socer.utopia2.R;
+import com.example.socer.utopia2.mvp.model.beans.TaskModelBean;
 import com.example.socer.utopia2.mvp.ui.fragments.base.BaseFragment;
+import com.example.socer.utopia2.mvp.views.TaskView;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
  */
-public class TaskFragment extends BaseFragment {
+public class TaskFragment extends BaseFragment implements TaskView {
 
     @Override
     protected int getLayoutId() {
@@ -37,5 +41,30 @@ public class TaskFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    public void initTaskListView(List<TaskModelBean> taskList) {
+
+    }
+
+    @Override
+    public void LoadSuccess(List<TaskModelBean> data) {
+
+    }
+
+    @Override
+    public void loadFailed(String errorMsg) {
+
+    }
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
     }
 }

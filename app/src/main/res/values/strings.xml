@@ -2,6 +2,7 @@
     <string name="app_name">Utopia2</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="load_data_failed">数据加载失败</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="account">账号</string>
     <string name="password">密码</string>

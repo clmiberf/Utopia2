@@ -9,7 +9,6 @@ import java.util.List;
 
 public class TaskModelBean implements Serializable {
 
-    private long id;
 
     /**
      * 任务名称
@@ -55,14 +54,6 @@ public class TaskModelBean implements Serializable {
 
     private List<String> chatRecords;
 
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getTaskName() {
         return taskName;

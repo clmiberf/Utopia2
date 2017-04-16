@@ -6,6 +6,16 @@ package com.example.socer.utopia2.mvp.model.beans;
 
 public class UserInfoModelBean {
 
+    private int userId;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     /**
      * 使用者姓名
      */

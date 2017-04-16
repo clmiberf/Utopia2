@@ -52,6 +52,7 @@
         </android.support.design.widget.TextInputLayout>
     </LinearLayout>
     <at.markushi.ui.CircleButton
+        android:id="@+id/circleButton_button"
         app:cb_color="@color/colorPrimary"
         app:cb_pressedRingWidth="8dp"
         android:layout_width="65dp"
