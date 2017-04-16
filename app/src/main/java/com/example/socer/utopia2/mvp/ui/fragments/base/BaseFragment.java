@@ -1,6 +1,6 @@
 package com.example.socer.utopia2.mvp.ui.fragments.base;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
  */
 
 public abstract class BaseFragment extends Fragment {
-    private View mFragmentView;
+    protected View mFragmentView;
 
     protected abstract int getLayoutId();
 
