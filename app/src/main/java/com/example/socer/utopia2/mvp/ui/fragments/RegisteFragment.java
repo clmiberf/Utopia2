@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.example.socer.utopia2.R;
+import com.example.socer.utopia2.mvp.ui.activities.HomeActivity;
 import com.example.socer.utopia2.mvp.ui.fragments.base.BaseFragment;
 
 import at.markushi.ui.CircleButton;
@@ -54,7 +55,7 @@ public class RegisteFragment extends BaseFragment {
     }
 
     public void register(){
-        Intent it = new Intent();
+        Intent it = new Intent(getActivity(), HomeActivity.class);
         startActivity(it);
     }
 

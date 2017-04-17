@@ -2,25 +2,20 @@ package com.example.socer.utopia2.network;
 
 import com.example.socer.utopia2.mvp.model.beans.DisccoverMsgModelBean;
 import com.example.socer.utopia2.mvp.model.beans.TaskModelBean;
-import com.example.socer.utopia2.mvp.model.beans.UserInfoModelBean;
-import com.example.socer.utopia2.mvp.model.interfaces.TaskModelApi;
 import com.example.socer.utopia2.mvp.views.DiscoverHotView;
 import com.example.socer.utopia2.mvp.views.LoginView;
-import com.example.socer.utopia2.mvp.views.TaskView;
+import com.example.socer.utopia2.mvp.views.bottomviews.TaskView;
 import com.example.socer.utopia2.network.apis.DiscoverHotApi;
 import com.example.socer.utopia2.network.apis.LoginApi;
 import com.example.socer.utopia2.network.apis.TaskApi;
 import com.example.socer.utopia2.shared.NetManager;
-import com.example.socer.utopia2.shared.rxutils.RxJavaCustomTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import rx.Subscriber;
 import rx.Subscription;
 
 /**

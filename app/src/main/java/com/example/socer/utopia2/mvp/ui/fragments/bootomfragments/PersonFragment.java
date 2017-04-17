@@ -1,4 +1,4 @@
-package com.example.socer.utopia2.mvp.ui.fragments;
+package com.example.socer.utopia2.mvp.ui.fragments.bootomfragments;
 
 
 import android.os.Bundle;
@@ -9,21 +9,22 @@ import android.view.ViewGroup;
 
 import com.example.socer.utopia2.R;
 import com.example.socer.utopia2.mvp.ui.fragments.base.BaseFragment;
+import com.example.socer.utopia2.mvp.views.bottomviews.PersonView;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MessageFragment extends BaseFragment {
+public class PersonFragment extends BaseFragment implements PersonView{
 
 
-    public MessageFragment() {
+    public PersonFragment() {
         // Required empty public constructor
     }
 
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_message;
+        return R.layout.fragment_person;
     }
 
     @Override
@@ -38,4 +39,13 @@ public class MessageFragment extends BaseFragment {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
 }

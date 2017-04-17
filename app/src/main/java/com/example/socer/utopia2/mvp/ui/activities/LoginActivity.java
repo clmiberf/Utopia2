@@ -106,7 +106,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     private void saveToPreference(UserInfoModelBean user){
         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
-        editor.putInt("user_id",user.getUserId());
+        editor.putString("user_id",user.getUserId());
         editor.putString("user_nickname", user.getUserNickname().toString());
         editor.putString("user_tel",user.getUserTel());
         editor.putString("user_email",user.getUserEmail());

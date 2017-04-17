@@ -12,4 +12,7 @@
     <string name="login">登陆</string>
     <string name="Null">null</string>
     <string name="app_introduction">Manage your life.</string>
+    <string name="add">添加</string>
+    <string name="edit">编辑</string>
+    <string name="task">任务</string>
 </resources>

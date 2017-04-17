@@ -1,4 +1,4 @@
-package com.example.socer.utopia2.mvp.views;
+package com.example.socer.utopia2.mvp.views.bottomviews;
 
 import com.example.socer.utopia2.mvp.model.beans.TaskModelBean;
 import com.example.socer.utopia2.mvp.views.base.BaseView;
@@ -16,4 +16,6 @@ public interface TaskView extends BaseView {
     void LoadSuccess(List<TaskModelBean> data);
 
     void loadFailed(String errorMsg);
+
+    void initToolbar();
 }

@@ -1,7 +1,7 @@
 package com.example.socer.utopia2.mvp.model.impls;
 
 import com.example.socer.utopia2.mvp.model.interfaces.TaskModelApi;
-import com.example.socer.utopia2.mvp.views.TaskView;
+import com.example.socer.utopia2.mvp.views.bottomviews.TaskView;
 import com.example.socer.utopia2.network.HttpMethod;
 
 import rx.Subscription;

@@ -8,7 +8,7 @@ import com.example.socer.utopia2.R;
 import com.example.socer.utopia2.mvp.model.beans.TaskModelBean;
 import com.example.socer.utopia2.mvp.model.impls.TaskModelApiIpml;
 import com.example.socer.utopia2.mvp.presenter.base.BasePresenter;
-import com.example.socer.utopia2.mvp.views.TaskView;
+import com.example.socer.utopia2.mvp.views.bottomviews.TaskView;
 import com.example.socer.utopia2.network.HttpResult;
 
 import java.util.List;

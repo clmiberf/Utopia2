@@ -6,13 +6,14 @@ import android.support.v4.view.ViewPager;
 import com.example.socer.utopia2.R;
 import com.example.socer.utopia2.adapters.ViewPagerAdapter;
 import com.example.socer.utopia2.mvp.ui.activities.base.BaseActivity;
-import com.example.socer.utopia2.mvp.ui.fragments.DiscoverFragment;
-import com.example.socer.utopia2.mvp.ui.fragments.MessageFragment;
-import com.example.socer.utopia2.mvp.ui.fragments.PersonFragment;
-import com.example.socer.utopia2.mvp.ui.fragments.TaskFragment;
+import com.example.socer.utopia2.mvp.ui.fragments.bootomfragments.DiscoverFragment;
+import com.example.socer.utopia2.mvp.ui.fragments.bootomfragments.MessageFragment;
+import com.example.socer.utopia2.mvp.ui.fragments.bootomfragments.PersonFragment;
+import com.example.socer.utopia2.mvp.ui.fragments.bootomfragments.TaskFragment;
 
 import me.majiajie.pagerbottomtabstrip.NavigationController;
 import me.majiajie.pagerbottomtabstrip.PageBottomTabLayout;
+import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener;
 
 public class HomeActivity extends BaseActivity {
 
@@ -45,7 +46,7 @@ public class HomeActivity extends BaseActivity {
                 .addItem(R.drawable.ic_textsms_black_24dp, "消息")
                 .addItem(R.drawable.ic_insert_emoticon_black_24dp, "个人")
                 .build();
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), controller);
         viewPagerAdapter.addFragment(new TaskFragment(), "任务");
         viewPagerAdapter.addFragment(new DiscoverFragment(), "发现");
         viewPagerAdapter.addFragment(new MessageFragment(), "消息");
