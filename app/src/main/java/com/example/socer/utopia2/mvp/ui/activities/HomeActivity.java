@@ -1,5 +1,6 @@
 package com.example.socer.utopia2.mvp.ui.activities;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 
@@ -13,7 +14,6 @@ import com.example.socer.utopia2.mvp.ui.fragments.bootomfragments.TaskFragment;
 
 import me.majiajie.pagerbottomtabstrip.NavigationController;
 import me.majiajie.pagerbottomtabstrip.PageBottomTabLayout;
-import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener;
 
 public class HomeActivity extends BaseActivity {
 
@@ -46,6 +46,7 @@ public class HomeActivity extends BaseActivity {
                 .addItem(R.drawable.ic_textsms_black_24dp, "消息")
                 .addItem(R.drawable.ic_insert_emoticon_black_24dp, "个人")
                 .build();
+        tabLayout.setBackgroundColor(Color.WHITE);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), controller);
         viewPagerAdapter.addFragment(new TaskFragment(), "任务");
         viewPagerAdapter.addFragment(new DiscoverFragment(), "发现");

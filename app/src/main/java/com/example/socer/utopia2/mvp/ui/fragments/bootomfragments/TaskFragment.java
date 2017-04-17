@@ -82,6 +82,7 @@ public class TaskFragment extends BaseFragment implements TaskView {
         homeTaskRecyclerview.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         adapter = new TaskRecyclerViewAdapter(this.getActivity(),taskList);
         homeTaskRecyclerview.setAdapter(adapter);
+        homeTaskRecyclerview.addOnScrollListener(onScrollListener);
     }
 
     @Override
