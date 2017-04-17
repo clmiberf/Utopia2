@@ -1,4 +1,4 @@
-package com.example.socer.utopia2.mvp.views;
+package com.example.socer.utopia2.mvp.views.bottomviews.discoverviews;
 
 import com.example.socer.utopia2.mvp.model.beans.DisccoverMsgModelBean;
 import com.example.socer.utopia2.mvp.model.beans.TaskModelBean;

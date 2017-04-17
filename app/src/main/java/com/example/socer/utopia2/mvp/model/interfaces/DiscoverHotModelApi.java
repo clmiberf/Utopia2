@@ -1,6 +1,6 @@
 package com.example.socer.utopia2.mvp.model.interfaces;
 
-import com.example.socer.utopia2.mvp.views.DiscoverHotView;
+import com.example.socer.utopia2.mvp.views.bottomviews.discoverviews.DiscoverHotView;
 
 import rx.Subscription;
 

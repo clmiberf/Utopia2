@@ -1,9 +1,11 @@
 package com.example.socer.utopia2.mvp.ui.fragments.bootomfragments;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.ActionMenuView;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -13,9 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.socer.utopia2.R;
+import com.example.socer.utopia2.adapters.TaskRecyclerViewAdapter;
 import com.example.socer.utopia2.mvp.model.beans.TaskModelBean;
+import com.example.socer.utopia2.mvp.presenter.TaskPresenter;
 import com.example.socer.utopia2.mvp.ui.fragments.base.BaseFragment;
 import com.example.socer.utopia2.mvp.views.bottomviews.TaskView;
+import com.example.socer.utopia2.shared.SpaceItemDecoration;
 
 import java.util.List;
 
@@ -39,6 +44,8 @@ public class TaskFragment extends BaseFragment implements TaskView {
     ActionMenuView actionMenuViewRight;
     Unbinder unbinder;
 
+    private TaskRecyclerViewAdapter adapter = null;
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_task;
@@ -60,12 +67,21 @@ public class TaskFragment extends BaseFragment implements TaskView {
         mFragmentView = super.onCreateView(inflater, container, savedInstanceState);
         initToolbar();
         unbinder = ButterKnife.bind(this, mFragmentView);
+        TaskPresenter presenter = new TaskPresenter(getActivity(), PreferenceManager.getDefaultSharedPreferences(getActivity()));
+        presenter.attachView(this);
+        presenter.onCreate(savedInstanceState);
+
         return mFragmentView;
     }
 
     @Override
     public void initTaskListView(List<TaskModelBean> taskList) {
-
+        int distance = 10;      //设置recyclerview之间的距离
+        homeTaskRecyclerview.addItemDecoration(new SpaceItemDecoration(distance));
+        homeTaskRecyclerview.setHasFixedSize(true);
+        homeTaskRecyclerview.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+        adapter = new TaskRecyclerViewAdapter(this.getActivity(),taskList);
+        homeTaskRecyclerview.setAdapter(adapter);
     }
 
     @Override

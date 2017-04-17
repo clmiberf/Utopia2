@@ -37,6 +37,8 @@ public class DiscoverFragment extends BaseFragment implements DiscoverView {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_discover, container, false);
+
+
     }
 
     @Override
