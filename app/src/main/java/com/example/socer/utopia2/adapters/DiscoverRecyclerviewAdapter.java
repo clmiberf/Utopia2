@@ -51,7 +51,7 @@ public class DiscoverRecyclerviewAdapter extends RecyclerView.Adapter<DiscoverRe
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext,"平哥最帅",Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext,"平哥最帅a",Toast.LENGTH_SHORT).show();
             }
         });
     }
