@@ -154,7 +154,8 @@ public class HttpMethod {
         imageUrl.add("http://img.my.csdn.net/uploads/201407/26/1406383290_9329.jpg");
 
 
-
+        model.setPublisherPictrueUrl("http://img.my.csdn.net/uploads/201407/26/1406383291_8239.jpg");
+        model.setPublisher("朱五");
         model.setCommentSum(1000);
         model.setLightenSum(3000);
         model.setTopicTitle("终于轮到我了，我是在妇产科工作的男医生，有什么想问的吗？");

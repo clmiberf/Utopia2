@@ -28,6 +28,10 @@ public class DiscoverRecyclerviewAdapter extends RecyclerView.Adapter<DiscoverRe
 
     protected List<DisccoverMsgModelBean> items;
 
+    public DiscoverRecyclerviewAdapter(Context mContext, List<DisccoverMsgModelBean> items) {
+        this.mContext = mContext;
+        this.items = items;
+    }
 
     @Override
     public DiscoverViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -38,20 +42,21 @@ public class DiscoverRecyclerviewAdapter extends RecyclerView.Adapter<DiscoverRe
     @Override
     public void onBindViewHolder(DiscoverViewHolder holder, int position) {
         DisccoverMsgModelBean msgModelBean = items.get(position);
-
+        String lightSum = msgModelBean.getLightenSum()+"";
+        String commentSum = msgModelBean.getCommentSum()+"";
         Glide.with(mContext)
                 .load(msgModelBean.getPublisherPictrueUrl().toString())
                 .diskCacheStrategy(DiskCacheStrategy.RESULT)
                 .into(holder.imageView);
         holder.publisher.setText(msgModelBean.getPublisher().toString());
         holder.contentView.setText(msgModelBean.getTopicContent().toString());
-        holder.lightTextView.setText(msgModelBean.getLightenSum());
-        holder.commentTextView.setText(msgModelBean.getCommentSum());
+        holder.lightTextView.setText(lightSum);
+        holder.commentTextView.setText(commentSum);
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext,"平哥最帅a",Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext,"平哥最帅",Toast.LENGTH_SHORT).show();
             }
         });
     }
