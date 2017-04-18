@@ -15,4 +15,8 @@
     <string name="add">添加</string>
     <string name="edit">编辑</string>
     <string name="task">任务</string>
+
+    <string name="discover_item_light">亮了</string>
+    <string name="discover_item_comment">评论</string>
+
 </resources>

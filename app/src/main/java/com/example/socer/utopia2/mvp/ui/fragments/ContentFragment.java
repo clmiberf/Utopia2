@@ -8,13 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.socer.utopia2.R;
+import com.example.socer.utopia2.mvp.model.beans.DisccoverMsgModelBean;
 import com.example.socer.utopia2.mvp.ui.fragments.base.BaseFragment;
 import com.example.socer.utopia2.mvp.views.bottomviews.DiscoverContentView;
+import com.example.socer.utopia2.mvp.views.bottomviews.discoverviews.DiscoverHotView;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ContentFragment extends BaseFragment implements DiscoverContentView {
+public class ContentFragment extends BaseFragment implements DiscoverHotView {
 
 
     public ContentFragment() {
@@ -46,6 +50,23 @@ public class ContentFragment extends BaseFragment implements DiscoverContentView
 
     @Override
     public void hideProgress() {
+
+    }
+
+    @Override
+    public void initDiscoverHotMsgListView(List<DisccoverMsgModelBean> hotList) {
+
+
+
+    }
+
+    @Override
+    public void LoadSuccess(List<DisccoverMsgModelBean> data) {
+
+    }
+
+    @Override
+    public void loadFailed(String errorMsg) {
 
     }
 }
