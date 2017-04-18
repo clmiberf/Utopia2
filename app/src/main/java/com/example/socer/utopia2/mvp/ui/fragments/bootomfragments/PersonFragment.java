@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.socer.utopia2.R;
+import com.example.socer.utopia2.mvp.model.beans.UserInfoModelBean;
 import com.example.socer.utopia2.mvp.ui.fragments.base.BaseFragment;
 import com.example.socer.utopia2.mvp.views.bottomviews.PersonView;
 
@@ -55,6 +56,21 @@ public class PersonFragment extends BaseFragment implements PersonView{
 
     @Override
     public void hideProgress() {
+
+    }
+
+    @Override
+    public void initPersonInfo(UserInfoModelBean modelBean) {
+
+    }
+
+    @Override
+    public void loadSuccessed(UserInfoModelBean modelBean) {
+
+    }
+
+    @Override
+    public void loadFailed(String errorMsg) {
 
     }
 }

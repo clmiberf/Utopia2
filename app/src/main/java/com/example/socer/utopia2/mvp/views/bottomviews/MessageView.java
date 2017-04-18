@@ -7,4 +7,6 @@ import com.example.socer.utopia2.mvp.views.base.BaseView;
  */
 
 public interface MessageView extends BaseView {
+
+
 }

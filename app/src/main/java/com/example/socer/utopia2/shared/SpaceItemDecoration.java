@@ -9,7 +9,7 @@ import android.view.View;
  */
 
 public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
-    private int space;
+    private int space = 0;
 
     public SpaceItemDecoration(int space){
         this.space = space;
@@ -17,10 +17,10 @@ public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-        outRect.left = space;
-        outRect.right = space;
-        outRect.bottom = space;
-        outRect.top = space;
+        outRect.left = 6;
+        outRect.right = 6;
+        outRect.bottom = 6;
+        outRect.top = 6;
 //        super.getItemOffsets(outRect, view, parent, state);
     }
 

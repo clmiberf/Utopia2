@@ -9,11 +9,11 @@ import java.util.List;
  * Created by socer on 17-4-17.
  */
 
-public interface DiscoverNewView extends BaseView {
-    void initDiscoverNewMsgListView(List<DisccoverMsgModelBean> newList);
+public interface DiscoverNearView extends BaseView {
+
+    void initDiscoverNearMsgListView(List<DisccoverMsgModelBean> nearList);
 
     void LoadSuccess(List<DisccoverMsgModelBean> data);
 
     void loadFailed(String errorMsg);
-
 }

@@ -2,14 +2,19 @@ package com.example.socer.utopia2.network;
 
 import com.example.socer.utopia2.mvp.model.beans.DisccoverMsgModelBean;
 import com.example.socer.utopia2.mvp.model.beans.TaskModelBean;
+import com.example.socer.utopia2.mvp.model.beans.UserInfoModelBean;
 import com.example.socer.utopia2.mvp.model.interfaces.DiscoverNewModelApi;
+import com.example.socer.utopia2.mvp.views.bottomviews.PersonView;
 import com.example.socer.utopia2.mvp.views.bottomviews.discoverviews.DiscoverHotView;
 import com.example.socer.utopia2.mvp.views.LoginView;
 import com.example.socer.utopia2.mvp.views.bottomviews.TaskView;
+import com.example.socer.utopia2.mvp.views.bottomviews.discoverviews.DiscoverNearView;
 import com.example.socer.utopia2.mvp.views.bottomviews.discoverviews.DiscoverNewView;
 import com.example.socer.utopia2.network.apis.DiscoverHotApi;
+import com.example.socer.utopia2.network.apis.DiscoverNearApi;
 import com.example.socer.utopia2.network.apis.DiscoverNewApi;
 import com.example.socer.utopia2.network.apis.LoginApi;
+import com.example.socer.utopia2.network.apis.PersonInfoApi;
 import com.example.socer.utopia2.network.apis.TaskApi;
 import com.example.socer.utopia2.shared.NetManager;
 
@@ -33,6 +38,8 @@ public class HttpMethod {
     private TaskApi taskApi = null;
     private DiscoverHotApi discoverHotApi = null;
     private DiscoverNewApi discoverNewApi = null;
+    private DiscoverNearApi discoverNearApi = null;
+    private PersonInfoApi personInfoApi = null;
 
     private HttpMethod(){
         Retrofit retrofit = new Retrofit.Builder()
@@ -45,6 +52,8 @@ public class HttpMethod {
         taskApi = retrofit.create(TaskApi.class);
         discoverHotApi = retrofit.create(DiscoverHotApi.class);
         discoverNewApi = retrofit.create(DiscoverNewApi.class);
+        discoverNearApi = retrofit.create(DiscoverNearApi.class);
+        personInfoApi = retrofit.create(PersonInfoApi.class);
     }
 
     public static HttpMethod getInstance(){
@@ -57,6 +66,8 @@ public class HttpMethod {
         }
         return instance;
     }
+
+
 
     public Subscription login(String username, String password, LoginView view){
 //                Subscription subscription =  loginApi.login(username, password)
@@ -161,7 +172,7 @@ public class HttpMethod {
         data.add(model);
 
         result.setData(data);
-        view.initDiscoverHotMsgListView(data);
+        view.initDiscoverHotMsgListView(result.getData());
         return null;
     }
 
@@ -199,9 +210,63 @@ public class HttpMethod {
         data.add(model);
 
         result.setData(data);
-        view.initDiscoverNewMsgListView(data);
+        view.initDiscoverNewMsgListView(result.getData());
         return null;
     }
+
+    public Subscription loadDiscoverNearMsgList(String userId, DiscoverNearView view){
+        HttpResult<List<DisccoverMsgModelBean>> result = new HttpResult<List<DisccoverMsgModelBean>>();
+        List<DisccoverMsgModelBean> data = new ArrayList<DisccoverMsgModelBean>();
+
+        DisccoverMsgModelBean model = new DisccoverMsgModelBean();
+        List<String> comments = new ArrayList<String>();
+        comments.add("可以很强势");
+        comments.add("二营长,你他娘的把老子的意大利...............妞拿来给这位兄弟玩玩");
+        comments.add("我过马路老奶奶都不扶就服你");
+        comments.add("大兄弟,你可以劝导广大女性同仁加入男科的队伍中.");
+        List<String> imageUrl = new ArrayList<String>();
+        imageUrl.add("http://img.my.csdn.net/uploads/201407/26/1406383291_8239.jpg");
+        imageUrl.add("http://img.my.csdn.net/uploads/201407/26/1406383290_9329.jpg");
+
+
+
+        model.setCommentSum(1000);
+        model.setLightenSum(3000);
+        model.setTopicTitle("终于轮到我了，我是在妇产科工作的男医生，有什么想问的吗？");
+        model.setTopicContent("2011年毕业于南方医科大学临床系，当初觉得身上肩负着拯救广" +
+                "大孕妇的责任而不顾家人的再三劝阻选择了南方医科大的妇产科，四年来兢兢业业努力学习，" +
+                "准备在妇产科这条路上闯出一条属于男性医生的路。");
+        model.setWhichTopic("医学");
+        model.setCommentList(comments);
+        model.setTopicImageList(imageUrl);
+
+        data.add(model);
+        data.add(model);
+        data.add(model);
+        data.add(model);
+        data.add(model);
+
+        result.setData(data);
+        view.initDiscoverNearMsgListView(result.getData());
+
+        return null;
+    }
+
+    public Subscription loadPersonInfo(String userId, PersonView view){
+       HttpResult<UserInfoModelBean> result = new HttpResult<UserInfoModelBean>();
+        UserInfoModelBean modelBean = new UserInfoModelBean();
+        modelBean.setUserNickname("朱三");
+        modelBean.setUserSex("男");
+        modelBean.setUserSignatrue("有何胜利可言,挺住就意味着一切.");
+        modelBean.setUserLocation("山东");
+        modelBean.setUserportraitUrl("http://img.my.csdn.net/uploads/201407/26/1406383290_9329.jpg");
+
+        result.setData(modelBean);
+        view.initPersonInfo(result.getData());
+        return null;
+    }
+
+
 
     public rx.Observable<HttpResult<List<TaskModelBean>>> getTaskListInfo(String userId){
         return taskApi.getTaskListInfo(userId);
@@ -211,6 +276,14 @@ public class HttpMethod {
     }
     public Observable<HttpResult<List<DisccoverMsgModelBean>>> getDiscoverNewListInfo(String userId){
         return discoverNewApi.getDiscoverNewListInfo(userId);
+    }
+
+    public rx.Observable<HttpResult<List<DisccoverMsgModelBean>>> getDiscoverNearListInfo(String userId){
+        return discoverNearApi.getDiscoverNearListInfo(userId);
+    }
+
+    public Observable<HttpResult<List<UserInfoModelBean>>> getPersonInfo(String userId){
+        return personInfoApi.getPersonInfo(userId);
     }
 
 }

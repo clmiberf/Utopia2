@@ -53,6 +53,8 @@ public class TaskFragment extends BaseFragment implements TaskView {
         return fragment;
     }
 
+    public static String status ;
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_task;
@@ -83,8 +85,12 @@ public class TaskFragment extends BaseFragment implements TaskView {
 
     @Override
     public void initTaskListView(List<TaskModelBean> taskList) {
-        int distance = 10;      //设置recyclerview之间的距离
-        homeTaskRecyclerview.addItemDecoration(new SpaceItemDecoration(distance));
+        if (status == null){
+            int distance = 7;      //设置recyclerview之间的距离
+            homeTaskRecyclerview.addItemDecoration(new SpaceItemDecoration(distance));
+            status = "true";
+        }
+
         homeTaskRecyclerview.setHasFixedSize(true);
         homeTaskRecyclerview.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         adapter = new TaskRecyclerViewAdapter(this.getActivity(),taskList);

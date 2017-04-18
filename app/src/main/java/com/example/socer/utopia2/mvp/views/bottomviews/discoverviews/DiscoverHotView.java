@@ -11,7 +11,7 @@ import java.util.List;
  */
 
 public interface DiscoverHotView extends BaseView {
-    void initDiscoverHotMsgListView(List<DisccoverMsgModelBean> taskList);
+    void initDiscoverHotMsgListView(List<DisccoverMsgModelBean> hotList);
 
     void LoadSuccess(List<DisccoverMsgModelBean> data);
 
