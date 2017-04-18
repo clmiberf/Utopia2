@@ -45,6 +45,13 @@ public class TaskFragment extends BaseFragment implements TaskView {
     Unbinder unbinder;
 
     private TaskRecyclerViewAdapter adapter = null;
+    private static TaskFragment fragment;
+    public static TaskFragment newInstance() {
+        if (fragment == null) {
+            fragment = new TaskFragment();
+        }
+        return fragment;
+    }
 
     @Override
     protected int getLayoutId() {

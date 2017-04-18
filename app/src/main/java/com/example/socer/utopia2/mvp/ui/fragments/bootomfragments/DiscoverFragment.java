@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.socer.utopia2.R;
 import com.example.socer.utopia2.adapters.ViewPagerAdapter;
-import com.example.socer.utopia2.mvp.ui.fragments.DiscoverContentFragment;
+import com.example.socer.utopia2.mvp.ui.fragments.ContentFragment;
 import com.example.socer.utopia2.mvp.ui.fragments.base.BaseFragment;
 import com.example.socer.utopia2.mvp.views.bottomviews.DiscoverView;
 
@@ -33,6 +33,14 @@ public class DiscoverFragment extends BaseFragment implements DiscoverView {
 
     public DiscoverFragment() {
         // Required empty public constructor
+    }
+
+    private static DiscoverFragment fragment;
+    public static DiscoverFragment newInstance() {
+        if (fragment == null) {
+            fragment = new DiscoverFragment();
+        }
+        return fragment;
     }
 
 
@@ -74,9 +82,9 @@ public class DiscoverFragment extends BaseFragment implements DiscoverView {
 
     private void initTablayout() {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getFragmentManager());
-        viewPagerAdapter.addFragment(new DiscoverContentFragment(), "热门");
-        viewPagerAdapter.addFragment(new DiscoverContentFragment(), "最新");
-        viewPagerAdapter.addFragment(new DiscoverContentFragment(), "附近");
+        viewPagerAdapter.addFragment(new ContentFragment(), "热门");
+        viewPagerAdapter.addFragment(new ContentFragment(), "最新");
+        viewPagerAdapter.addFragment(new ContentFragment(), "附近");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }

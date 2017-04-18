@@ -21,6 +21,15 @@ public class PersonFragment extends BaseFragment implements PersonView{
         // Required empty public constructor
     }
 
+    private static PersonFragment fragment;
+    public static PersonFragment newInstance() {
+        if (fragment == null) {
+            fragment = new PersonFragment();
+        }
+        return fragment;
+    }
+    
+
 
     @Override
     protected int getLayoutId() {

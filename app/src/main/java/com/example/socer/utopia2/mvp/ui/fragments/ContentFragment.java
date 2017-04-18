@@ -14,17 +14,17 @@ import com.example.socer.utopia2.mvp.views.bottomviews.DiscoverContentView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DiscoverContentFragment extends BaseFragment implements DiscoverContentView {
+public class ContentFragment extends BaseFragment implements DiscoverContentView {
 
 
-    public DiscoverContentFragment() {
+    public ContentFragment() {
         // Required empty public constructor
     }
 
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_discover_content;
+        return R.layout.fragment_content;
     }
 
     @Override

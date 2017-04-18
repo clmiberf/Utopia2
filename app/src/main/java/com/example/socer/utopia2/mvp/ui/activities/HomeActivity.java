@@ -48,10 +48,10 @@ public class HomeActivity extends BaseActivity {
                 .build();
         tabLayout.setBackgroundColor(Color.WHITE);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), controller);
-        viewPagerAdapter.addFragment(new TaskFragment(), "任务");
-        viewPagerAdapter.addFragment(new DiscoverFragment(), "发现");
-        viewPagerAdapter.addFragment(new MessageFragment(), "消息");
-        viewPagerAdapter.addFragment(new PersonFragment(), "个人");
+        viewPagerAdapter.addFragment(TaskFragment.newInstance(), "任务");
+        viewPagerAdapter.addFragment(DiscoverFragment.newInstance(), "发现");
+        viewPagerAdapter.addFragment(MessageFragment.newInstance(), "消息");
+        viewPagerAdapter.addFragment(PersonFragment.newInstance(), "个人");
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         viewPager.setAdapter(viewPagerAdapter);
         controller.setupWithViewPager(viewPager);
