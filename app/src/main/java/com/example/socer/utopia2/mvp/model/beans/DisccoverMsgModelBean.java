@@ -9,6 +9,16 @@ import java.util.List;
 public class DisccoverMsgModelBean {
 
     /**
+     * 发表者昵称
+     */
+    private String publisher;
+
+    /**
+     * 发表者头像地址
+     */
+    private String publisherPictrueUrl;
+
+    /**
      * 话题分类
      */
     private String whichTopic;
@@ -43,6 +53,22 @@ public class DisccoverMsgModelBean {
      *感谢作者
      */
     private List<String> commentList;
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getPublisherPictrueUrl() {
+        return publisherPictrueUrl;
+    }
+
+    public void setPublisherPictrueUrl(String publisherPictrueUrl) {
+        this.publisherPictrueUrl = publisherPictrueUrl;
+    }
 
     public String getWhichTopic() {
         return whichTopic;
