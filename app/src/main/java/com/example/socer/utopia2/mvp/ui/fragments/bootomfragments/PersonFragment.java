@@ -29,8 +29,6 @@ public class PersonFragment extends BaseFragment implements PersonView{
         }
         return fragment;
     }
-    
-
 
     @Override
     protected int getLayoutId() {

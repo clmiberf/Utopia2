@@ -84,7 +84,7 @@ public class MessageFragment extends BaseFragment implements MessageView {
     }
 
     private void initTablayout() {
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getFragmentManager());
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
         viewPagerAdapter.addFragment(new ContentFragment(), "评论");
         viewPagerAdapter.addFragment(new ContentFragment(), "私信");
         viewPagerAdapter.addFragment(new ContentFragment(), "@我");

@@ -15,6 +15,13 @@
     <string name="add">添加</string>
     <string name="edit">编辑</string>
     <string name="task">任务</string>
+    <string name="sport">运动</string>
+    <string name="leisure">休闲</string>
+    <string name="health">健康</string>
+    <string name="efficient">效率</string>
+    <string name="flag">Flag</string>
+    <string name="about">关于</string>
+    <string name="settings">设置</string>
 
     <string name="discover_item_light">亮了</string>
     <string name="discover_item_comment">评论</string>

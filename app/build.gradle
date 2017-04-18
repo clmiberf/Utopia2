@@ -77,6 +77,7 @@ dependencies {
     compile 'com.google.dagger:dagger-compiler:2.4'
     compile 'me.majiajie:pager-bottom-tab-strip:2.1.0'
     compile 'com.github.markushi:circlebutton:1.1'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }
