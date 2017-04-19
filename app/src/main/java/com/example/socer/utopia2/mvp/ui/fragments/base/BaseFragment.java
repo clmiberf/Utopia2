@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.socer.utopia2.HideBottomNavListener;
+
 import butterknife.ButterKnife;
 
 /**
@@ -22,7 +24,7 @@ public abstract class BaseFragment extends Fragment {
      *当需要自动隐藏底栏的时候，需要在定义完recycler后，添加语句:
      * recyclerView.addOnScrollListener(onScrollLister);
      */
-    protected RecyclerView.OnScrollListener onScrollListener;
+    protected HideBottomNavListener onScrollListener;
 
     protected abstract int getLayoutId();
 
@@ -46,7 +48,7 @@ public abstract class BaseFragment extends Fragment {
         return mFragmentView;
     }
 
-    public void setOnScrollListener(RecyclerView.OnScrollListener onScrollListener) {
+    public void setOnScrollListener(HideBottomNavListener onScrollListener) {
         this.onScrollListener = onScrollListener;
     }
 }

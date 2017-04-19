@@ -1,13 +1,12 @@
 package com.example.socer.utopia2.adapters;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,21 +19,22 @@ import java.util.List;
 
 /**
  * Created by socer on 17-3-28.
+ *
  */
 
 public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerViewAdapter.TaskRecyclerViewHolder> {
-    private Context mcontext;
-    protected List<TaskModelBean> items;
+    private Context context;
+    private List<TaskModelBean> items;
 
     public TaskRecyclerViewAdapter(Context mcontext, List<TaskModelBean> items) {
-        this.mcontext = mcontext;
+        this.context = mcontext;
         this.items = items;
     }
 
 
     @Override
     public TaskRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mcontext).inflate(R.layout.task_item_layout,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_task,parent,false);
         return new TaskRecyclerViewHolder(view);
     }
 
@@ -43,15 +43,15 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
     public void onBindViewHolder(final TaskRecyclerViewHolder holder, int position) {
         TaskModelBean task = items.get(position);
 
-        Glide.with(mcontext)
-                .load(task.getPictuerUrl().toString())
+        Glide.with(context)
+                .load(task.getPictuerUrl())
                 .diskCacheStrategy(DiskCacheStrategy.RESULT)
                 .into(holder.imageView);
-        holder.textView.setText(task.getTaskName().toString());
-        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+        holder.textView.setText(task.getTaskName());
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mcontext,"平哥最帅",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Card的点击事件", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -62,16 +62,15 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
         return items.size();
     }
 
-    public class TaskRecyclerViewHolder extends RecyclerView.ViewHolder{
-        RelativeLayout relativeLayout;
+    class TaskRecyclerViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
         TextView textView;
-
-        public TaskRecyclerViewHolder(View itemView) {
+        CardView cardView;
+        TaskRecyclerViewHolder(View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.task_image_item);
             textView = (TextView) itemView.findViewById(R.id.task_text_item);
-            relativeLayout = (RelativeLayout) itemView.findViewById(R.id.task_item_relativelayout);
+            cardView = (CardView) itemView.findViewById(R.id.card_view);
         }
     }
 }

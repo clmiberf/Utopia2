@@ -81,7 +81,7 @@ public class DiscoverFragment extends BaseFragment implements DiscoverView {
     }
 
     private void initTablayout() {
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager(), onScrollListener);
         viewPagerAdapter.addFragment(new ContentFragment(), "热门");
         viewPagerAdapter.addFragment(new ContentFragment(), "最新");
         viewPagerAdapter.addFragment(new ContentFragment(), "附近");

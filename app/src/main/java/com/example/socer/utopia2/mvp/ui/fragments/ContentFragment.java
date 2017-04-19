@@ -78,14 +78,17 @@ public class ContentFragment extends BaseFragment implements DiscoverHotView {
 
     @Override
     public void initDiscoverHotMsgListView(List<DisccoverMsgModelBean> hotList) {
-        if (status == null){
-            int distance = 15;      //设置recyclerview之间的距离
-            discoverRecyclerview.addItemDecoration(new SpaceItemDecoration(distance));
-            status = "true";
-        }
-        discoverRecyclerview.setHasFixedSize(true);
+//        if (status == null){
+//            int distance = 15;      //设置recyclerview之间的距离
+//            discoverRecyclerview.addItemDecoration(new SpaceItemDecoration(distance));
+//            status = "true";
+//        }
+//        discoverRecyclerview.setHasFixedSize(true);
         discoverRecyclerview.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         adapter = new DiscoverRecyclerviewAdapter(this.getContext(),hotList);
+        if (onScrollListener != null) {
+            discoverRecyclerview.addOnScrollListener(onScrollListener);
+        }
         discoverRecyclerview.setAdapter(adapter);
     }
 
