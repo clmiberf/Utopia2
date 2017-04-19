@@ -1,6 +1,7 @@
 package com.example.socer.utopia2.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.socer.utopia2.R;
 import com.example.socer.utopia2.mvp.model.beans.TaskModelBean;
+import com.example.socer.utopia2.mvp.ui.activities.TimeLimitedTaskActivity;
 
 import java.util.List;
 
@@ -52,6 +54,7 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "Card的点击事件", Toast.LENGTH_SHORT).show();
+                context.startActivity(new Intent(context, TimeLimitedTaskActivity.class));
             }
         });
 
