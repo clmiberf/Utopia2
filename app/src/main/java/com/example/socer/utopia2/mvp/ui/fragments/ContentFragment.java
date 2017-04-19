@@ -56,11 +56,13 @@ public class ContentFragment extends BaseFragment implements DiscoverHotView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mFragmentView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder = ButterKnife.bind(this, mFragmentView);
+
         DiscoverHotPresenter hotPresenter = new DiscoverHotPresenter(getActivity(),
                 PreferenceManager.getDefaultSharedPreferences(getActivity()));
         hotPresenter.attachView(this);
         hotPresenter.onCreate(savedInstanceState);
-        unbinder = ButterKnife.bind(this, mFragmentView);
+
         return mFragmentView;
     }
 

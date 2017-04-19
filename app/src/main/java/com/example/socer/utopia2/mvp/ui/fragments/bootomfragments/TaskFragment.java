@@ -79,7 +79,6 @@ public class TaskFragment extends BaseFragment implements TaskView {
         TaskPresenter presenter = new TaskPresenter(getActivity(), PreferenceManager.getDefaultSharedPreferences(getActivity()));
         presenter.attachView(this);
         presenter.onCreate(savedInstanceState);
-
         return mFragmentView;
     }
 

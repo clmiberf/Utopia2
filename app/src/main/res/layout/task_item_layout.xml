@@ -8,6 +8,8 @@
 
 
         <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="match_parent"

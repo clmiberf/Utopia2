@@ -6,11 +6,11 @@ import android.os.Bundle;
 import com.example.socer.utopia2.R;
 import com.example.socer.utopia2.mvp.ui.activities.base.BaseActivity;
 
-public class RegisterActivity extends BaseActivity {
+public class TimeLimitedTaskActivity extends BaseActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_register;
+        return R.layout.activity_time_limited_task;
     }
 
     @Override
@@ -26,6 +26,5 @@ public class RegisterActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
     }
 }

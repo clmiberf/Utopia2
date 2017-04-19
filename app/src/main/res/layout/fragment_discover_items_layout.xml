@@ -54,7 +54,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:layout_marginLeft="10dp"
-                    android:layout_width="25dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"/>
                 <TextView
@@ -74,7 +74,7 @@
                 <TextView
                     android:id="@+id/discover_item_comment_number"
                     android:gravity="center"
-                    android:layout_width="25dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"/>
                 <TextView

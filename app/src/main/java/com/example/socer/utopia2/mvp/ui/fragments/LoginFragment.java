@@ -10,8 +10,6 @@ import android.widget.EditText;
 
 import com.example.socer.utopia2.R;
 import com.example.socer.utopia2.mvp.ui.activities.HomeActivity;
-import com.example.socer.utopia2.mvp.ui.activities.LoginActivity;
-import com.example.socer.utopia2.mvp.ui.activities.MainActivity;
 import com.example.socer.utopia2.mvp.ui.fragments.base.BaseFragment;
 
 import at.markushi.ui.CircleButton;

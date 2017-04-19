@@ -10,6 +10,7 @@ import com.example.socer.utopia2.mvp.views.LoginView;
 import com.example.socer.utopia2.mvp.views.bottomviews.TaskView;
 import com.example.socer.utopia2.mvp.views.bottomviews.discoverviews.DiscoverNearView;
 import com.example.socer.utopia2.mvp.views.bottomviews.discoverviews.DiscoverNewView;
+import com.example.socer.utopia2.network.apis.AddTaskApi;
 import com.example.socer.utopia2.network.apis.DiscoverHotApi;
 import com.example.socer.utopia2.network.apis.DiscoverNearApi;
 import com.example.socer.utopia2.network.apis.DiscoverNewApi;
@@ -40,6 +41,8 @@ public class HttpMethod {
     private DiscoverNewApi discoverNewApi = null;
     private DiscoverNearApi discoverNearApi = null;
     private PersonInfoApi personInfoApi = null;
+    private AddTaskApi addTaskApi = null;
+
 
     private HttpMethod(){
         Retrofit retrofit = new Retrofit.Builder()
@@ -54,6 +57,7 @@ public class HttpMethod {
         discoverNewApi = retrofit.create(DiscoverNewApi.class);
         discoverNearApi = retrofit.create(DiscoverNearApi.class);
         personInfoApi = retrofit.create(PersonInfoApi.class);
+        addTaskApi = retrofit.create(AddTaskApi.class);
     }
 
     public static HttpMethod getInstance(){
@@ -286,5 +290,6 @@ public class HttpMethod {
     public Observable<HttpResult<List<UserInfoModelBean>>> getPersonInfo(String userId){
         return personInfoApi.getPersonInfo(userId);
     }
+
 
 }
