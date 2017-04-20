@@ -42,9 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginRight="10dp"
-            android:hint="搜索感兴趣的任务，活动"
-            app:logo="@drawable/follow"
-            app:fsv_menu="@menu/search">
+            android:hint="搜索感兴趣的任务，活动">
 
         </com.mypopsy.widget.FloatingSearchView>
 
