@@ -2,8 +2,10 @@ package com.example.socer.utopia2.network;
 
 import com.example.socer.utopia2.mvp.model.beans.DisccoverMsgModelBean;
 import com.example.socer.utopia2.mvp.model.beans.TaskModelBean;
+import com.example.socer.utopia2.mvp.model.beans.TopicModelBean;
 import com.example.socer.utopia2.mvp.model.beans.UserInfoModelBean;
 import com.example.socer.utopia2.mvp.model.interfaces.DiscoverNewModelApi;
+import com.example.socer.utopia2.mvp.views.TopicHomePageView;
 import com.example.socer.utopia2.mvp.views.bottomviews.PersonView;
 import com.example.socer.utopia2.mvp.views.bottomviews.discoverviews.DiscoverHotView;
 import com.example.socer.utopia2.mvp.views.LoginView;
@@ -17,6 +19,7 @@ import com.example.socer.utopia2.network.apis.DiscoverNewApi;
 import com.example.socer.utopia2.network.apis.LoginApi;
 import com.example.socer.utopia2.network.apis.PersonInfoApi;
 import com.example.socer.utopia2.network.apis.TaskApi;
+import com.example.socer.utopia2.network.apis.TopicHomepageApi;
 import com.example.socer.utopia2.shared.NetManager;
 
 import java.util.ArrayList;
@@ -42,6 +45,7 @@ public class HttpMethod {
     private DiscoverNearApi discoverNearApi = null;
     private PersonInfoApi personInfoApi = null;
     private AddTaskApi addTaskApi = null;
+    private TopicHomepageApi homepageApi = null;
 
 
     private HttpMethod(){
@@ -58,6 +62,7 @@ public class HttpMethod {
         discoverNearApi = retrofit.create(DiscoverNearApi.class);
         personInfoApi = retrofit.create(PersonInfoApi.class);
         addTaskApi = retrofit.create(AddTaskApi.class);
+        homepageApi = retrofit.create(TopicHomepageApi.class);
     }
 
     public static HttpMethod getInstance(){
@@ -272,6 +277,43 @@ public class HttpMethod {
     }
 
 
+    public Subscription loadTopicInfo(String userId, TopicHomePageView view){
+        HttpResult<TopicModelBean> result = new HttpResult<TopicModelBean>();
+
+        TopicModelBean modelBean = new TopicModelBean();
+        modelBean.setTitle("人不自信的根本原因是什么?");
+        modelBean.setTopicDescription("关于人不自信这个问题，已经有了很多回答了，但是几乎都很粗糙，" +
+                "没有真正的体现出本质，我希望能了解其本质，并从根本上来克服这个问题。");
+        modelBean.setFocusSum(192310);
+        modelBean.setCommentSum(37);
+        modelBean.setResponseSum(1500);
+
+        HttpResult<List<DisccoverMsgModelBean>> result1 = new HttpResult<List<DisccoverMsgModelBean>>();
+        List<DisccoverMsgModelBean> data = new ArrayList<DisccoverMsgModelBean>();
+
+        DisccoverMsgModelBean model = new DisccoverMsgModelBean();
+
+        model.setPublisher("朱五");
+        model.setCommentSum(1000);
+        model.setLightenSum(3000);
+        model.setTopicTitle("终于轮到我了，我是在妇产科工作的男医生，有什么想问的吗？");
+        model.setTopicContent("2011年毕业于南方医科大学临床系，当初觉得身上肩负着拯救广" +
+                "大孕妇的责任而不顾家人的再三劝阻选择了南方医科大的妇产科，四年来兢兢业业努力学习，" +
+                "准备在妇产科这条路上闯出一条属于男性医生的路。");
+        model.setPublisherPictrueUrl("http://img.my.csdn.net/uploads/201407/26/1406383291_8239.jpg");
+
+        data.add(model);
+        data.add(model);
+        data.add(model);
+        data.add(model);
+        data.add(model);
+
+        result.setData(modelBean);
+        result1.setData(data);
+        view.initTopicInfo(result.getData(),result1.getData());
+        return null;
+    }
+
 
     public rx.Observable<HttpResult<List<TaskModelBean>>> getTaskListInfo(String userId){
         return taskApi.getTaskListInfo(userId);
@@ -289,6 +331,10 @@ public class HttpMethod {
 
     public Observable<HttpResult<List<UserInfoModelBean>>> getPersonInfo(String userId){
         return personInfoApi.getPersonInfo(userId);
+    }
+
+    public Observable<HttpResult<List<TopicModelBean>>> getTopicInfo(String userId){
+        return homepageApi.getTopicInfo(userId);
     }
 
 

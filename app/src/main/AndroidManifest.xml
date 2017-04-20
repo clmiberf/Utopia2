@@ -21,7 +21,8 @@
         <activity android:name=".mvp.ui.activities.RegisterActivity" />
         <activity android:name=".mvp.ui.activities.HomeActivity" />
         <activity android:name=".mvp.ui.activities.TimeLimitedTaskActivity" />
-        <activity android:name=".mvp.ui.activities.AddTaskActivity"></activity>
+        <activity android:name=".mvp.ui.activities.AddTaskActivity" />
+        <activity android:name=".mvp.ui.activities.TopicHomepageActivity"></activity>
     </application>
 
 </manifest>
