@@ -52,7 +52,7 @@ public class DiscoverRecyclerviewAdapter extends RecyclerView.Adapter<DiscoverRe
         holder.contentView.setText(msgModelBean.getTopicContent());
         holder.lightTextView.setText(lightSum);
         holder.commentTextView.setText(commentSum);
-
+        holder.topicView.setText(msgModelBean.getTopicTitle());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +74,7 @@ public class DiscoverRecyclerviewAdapter extends RecyclerView.Adapter<DiscoverRe
         TextView commentTextView;
         TextView contentView;
         CardView cardView;
+        TextView topicView;
 
         DiscoverViewHolder(View itemView) {
             super(itemView);
@@ -83,6 +84,7 @@ public class DiscoverRecyclerviewAdapter extends RecyclerView.Adapter<DiscoverRe
             publisher = (TextView) itemView.findViewById(R.id.discover_user_nickname);
             contentView = (TextView) itemView.findViewById(R.id.discover_item_content);
             cardView = (CardView) itemView.findViewById(R.id.card_view);
+            topicView = (TextView) itemView.findViewById(R.id.topic);
         }
     }
 
