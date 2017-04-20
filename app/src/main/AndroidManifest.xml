@@ -22,7 +22,8 @@
         <activity android:name=".mvp.ui.activities.HomeActivity" />
         <activity android:name=".mvp.ui.activities.TimeLimitedTaskActivity" />
         <activity android:name=".mvp.ui.activities.AddTaskActivity" />
-        <activity android:name=".mvp.ui.activities.DiscoverContentActivity"></activity>
+        <activity android:name=".mvp.ui.activities.DiscoverContentActivity" />
+        <activity android:name=".mvp.ui.activities.MyUserInfoActivity"></activity>
     </application>
 
 </manifest>

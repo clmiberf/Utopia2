@@ -1,7 +1,9 @@
 package com.example.socer.utopia2.mvp.ui.activities;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.view.View;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -31,6 +33,10 @@ public class DiscoverContentActivity extends BaseActivity implements DiscoverCon
     TextView topic;
     @BindView(R.id.topic_content)
     TextView topicContent;
+    @BindView(R.id.follow_text)
+    TextView followText;
+    @BindView(R.id.follow_card)
+    CardView followCard;
 
     @Override
     public int getLayoutId() {
@@ -63,9 +69,6 @@ public class DiscoverContentActivity extends BaseActivity implements DiscoverCon
 
     }
 
-    @OnClick(R.id.user_card)
-    public void onClick() {
-    }
 
     private void test() {
         DisccoverMsgModelBean bean = (DisccoverMsgModelBean) getIntent().getSerializableExtra("bean");
@@ -73,5 +76,25 @@ public class DiscoverContentActivity extends BaseActivity implements DiscoverCon
         topicContent.setText(bean.getTopicContent());
         userNickname.setText(bean.getPublisher());
         Glide.with(this).load(bean.getPublisherPictrueUrl()).into(headPic);
+    }
+
+    @OnClick({R.id.follow_card, R.id.user_card})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.back:
+                finish();
+                break;
+            case R.id.follow_card:
+                if (followText.getText().toString().length()>2) {
+                    followText.setText("关注");
+                    followText.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                } else {
+                    followText.setText("已关注");
+                    followText.setTextColor(Color.parseColor("#b9b9b9"));
+                }
+                break;
+            case R.id.user_card:
+                break;
+        }
     }
 }

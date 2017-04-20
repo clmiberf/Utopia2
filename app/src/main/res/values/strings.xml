@@ -45,4 +45,13 @@
     <string name="pick_time">选择时间</string>
     <string name="pick_members">选择成员</string>
     <string name="topic">话题</string>
+    <string name="more">更多</string>
+    <string name="nick_name">昵称</string>
+    <string name="check_or_edit">查看或编辑个人信息</string>
+    <string name="my_topic">关注的话题</string>
+    <string name="my_fans">我的粉丝</string>
+    <string name="followed">我关注的</string>
+    <string name="my_actvivity">我的活动</string>
+    <string name="my_reply">我的回复</string>
+    <string name="my_theme">我的主题</string>
 </resources>
