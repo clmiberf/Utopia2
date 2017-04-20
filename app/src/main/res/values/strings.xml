@@ -39,4 +39,10 @@
     <string name="menu.tts">text to speech</string>
     <string name="menu.toggle.icon">Icon Visible</string>
     <string name="menu.icon.type">Icon Type</string>
+    <string name="create_task">创建任务</string>
+    <string name="task_name">任务名称</string>
+    <string name="tast_description">任务描述</string>
+    <string name="pick_time">选择时间</string>
+    <string name="pick_members">选择成员</string>
+    <string name="topic">话题</string>
 </resources>

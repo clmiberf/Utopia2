@@ -1,12 +1,13 @@
 package com.example.socer.utopia2.mvp.model.beans;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by socer on 17-4-16.
  */
 
-public class DisccoverMsgModelBean {
+public class DisccoverMsgModelBean implements Serializable {
 
     /**
      * 发表者昵称
