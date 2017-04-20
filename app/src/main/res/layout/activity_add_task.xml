@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_add_task"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.socer.utopia2.mvp.ui.activities.AddTaskActivity">
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/follow"-->
+        <!--android:layout_gravity="bottom|end"-->
+        <!--android:layout_marginEnd="16dp"-->
+        <!--android:layout_marginRight="16dp"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--android:onClick="onGithubClick"-->
+        <!--/>-->
+
+    <RelativeLayout
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <LinearLayout
+            android:id="@+id/add_task_back_img"
+            android:layout_centerVertical="true"
+            android:layout_width="50dp"
+            android:layout_height="40dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_chevron_left_black_24dp"/>
+        </LinearLayout>
+
+        <com.mypopsy.widget.FloatingSearchView
+            android:id="@+id/add_task_search"
+            android:layout_toRightOf="@+id/add_task_back_img"
+            android:layout_toLeftOf="@+id/add_task_build"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:hint="搜索感兴趣的任务，活动"
+            app:logo="@drawable/follow"
+            app:fsv_menu="@menu/search">
+
+        </com.mypopsy.widget.FloatingSearchView>
+
+        <!--<android.support.v7.widget.SearchView-->
+            <!--android:id="@+id/add_task_search"-->
+            <!--android:layout_toRightOf="@+id/add_task_back_img"-->
+            <!--android:layout_toLeftOf="@+id/add_task_build"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:iconifiedByDefault="false"-->
+            <!--android:imeOptions="actionSearch"-->
+            <!--android:queryHint="输入敢兴趣的任务,活动名称" />-->
+        <TextView
+            android:id="@+id/add_task_build"
+            android:text="创建"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" />
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

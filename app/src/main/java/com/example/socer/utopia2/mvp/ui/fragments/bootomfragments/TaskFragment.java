@@ -1,5 +1,6 @@
 package com.example.socer.utopia2.mvp.ui.fragments.bootomfragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
@@ -18,6 +19,7 @@ import com.example.socer.utopia2.R;
 import com.example.socer.utopia2.adapters.TaskRecyclerViewAdapter;
 import com.example.socer.utopia2.mvp.model.beans.TaskModelBean;
 import com.example.socer.utopia2.mvp.presenter.TaskPresenter;
+import com.example.socer.utopia2.mvp.ui.activities.AddTaskActivity;
 import com.example.socer.utopia2.mvp.ui.fragments.base.BaseFragment;
 import com.example.socer.utopia2.mvp.views.bottomviews.TaskView;
 import com.example.socer.utopia2.shared.SpaceItemDecoration;
@@ -124,6 +126,8 @@ public class TaskFragment extends BaseFragment implements TaskView {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 Log.d("TaskFragment", "在这里设置点击添加以后的事件");
+                Intent intent = new Intent(getActivity(),AddTaskActivity.class);
+                startActivity(intent);
                 return true;
             }
         });
