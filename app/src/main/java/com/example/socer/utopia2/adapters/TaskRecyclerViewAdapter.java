@@ -54,7 +54,8 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "Card的点击事件", Toast.LENGTH_SHORT).show();
-                context.startActivity(new Intent(context, TimeLimitedTaskActivity.class));
+                Intent intent = new Intent(context, TimeLimitedTaskActivity.class);
+                context.startActivity(intent);
             }
         });
 

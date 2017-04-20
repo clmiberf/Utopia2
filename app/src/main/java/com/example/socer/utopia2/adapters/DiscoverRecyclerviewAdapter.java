@@ -1,8 +1,10 @@
 package com.example.socer.utopia2.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.socer.utopia2.R;
 import com.example.socer.utopia2.mvp.model.beans.DisccoverMsgModelBean;
+import com.example.socer.utopia2.mvp.ui.activities.DiscoverContentActivity;
 
 import java.util.List;
 
@@ -56,7 +59,9 @@ public class DiscoverRecyclerviewAdapter extends RecyclerView.Adapter<DiscoverRe
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext,"这是哪个fragment?",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, DiscoverContentActivity.class);
+                intent.putExtra("bean", msgModelBean);
+                mContext.startActivity(intent);
             }
         });
     }
