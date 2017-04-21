@@ -9,6 +9,7 @@ import com.example.socer.utopia2.adapters.ViewPagerAdapter;
 import com.example.socer.utopia2.mvp.ui.activities.base.BaseActivity;
 import com.example.socer.utopia2.mvp.ui.fragments.bootomfragments.DiscoverFragment;
 import com.example.socer.utopia2.mvp.ui.fragments.bootomfragments.MessageFragment;
+import com.example.socer.utopia2.mvp.ui.fragments.bootomfragments.MsgFragment;
 import com.example.socer.utopia2.mvp.ui.fragments.bootomfragments.PersonFragment;
 import com.example.socer.utopia2.mvp.ui.fragments.bootomfragments.TaskFragment;
 
@@ -50,7 +51,7 @@ public class HomeActivity extends BaseActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), controller);
         viewPagerAdapter.addFragment(TaskFragment.newInstance(), "任务");
         viewPagerAdapter.addFragment(DiscoverFragment.newInstance(), "发现");
-        viewPagerAdapter.addFragment(MessageFragment.newInstance(), "消息");
+        viewPagerAdapter.addFragment(MsgFragment.newInstance(), "消息");
         viewPagerAdapter.addFragment(PersonFragment.newInstance(), "个人");
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         viewPager.setAdapter(viewPagerAdapter);
