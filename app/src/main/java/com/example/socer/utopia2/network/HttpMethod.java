@@ -128,20 +128,44 @@ public class HttpMethod {
         model.setPictuerUrl("http://img.my.csdn.net/uploads/201407/26/1406383299_1976.jpg");
         model.setTaskPictureUrls(url);
 
+        TaskModelBean model1 = new TaskModelBean();
+        List<String> persons1 = new ArrayList<String>();
+
+        model1.setTaskName("下午去图书馆自习");
+        model1.setTaskDate("20:00--21:00");
+        model1.setTaskPersons(persons);
+        model1.setTaskdescription("这是一个持之以恒的运动，除了能锻炼身体，更重要的是有综测加,美滋滋");
+        model1.setTaskStatus(status);
+        model1.setPictuerUrl("http://img.my.csdn.net/uploads/201407/26/1406383291_8239.jpg");
+        model1.setTaskPictureUrls(url);
+
+        TaskModelBean model2 = new TaskModelBean();
+        List<String> persons2 = new ArrayList<String>();
+
+        model2.setTaskName("朋友生日，打个电话祝福");
+        model2.setTaskDate("20:00--21:00");
+        model2.setTaskPersons(persons);
+        model2.setTaskdescription("这是一个持之以恒的运动，除了能锻炼身体，更重要的是有综测加,美滋滋");
+        model2.setTaskStatus(status);
+        model2.setPictuerUrl("http://img.my.csdn.net/uploads/201407/26/1406383299_1976.jpg");
+        model2.setTaskPictureUrls(url);
+
+        TaskModelBean model3 = new TaskModelBean();
+        List<String> persons3 = new ArrayList<String>();
+
+        model3.setTaskName("本周看完<<红楼梦>>");
+        model3.setTaskDate("20:00--21:00");
+        model3.setTaskPersons(persons);
+        model3.setTaskdescription("这是一个持之以恒的运动，除了能锻炼身体，更重要的是有综测加,美滋滋");
+        model3.setTaskStatus(status);
+        model3.setPictuerUrl("http://img.my.csdn.net/uploads/201407/26/1406383290_9329.jpg");
+        model3.setTaskPictureUrls(url);
+
         data.add(model);
-        data.add(model);
-        data.add(model);
-        data.add(model);
-        data.add(model);
-        data.add(model);
-        data.add(model);
-        data.add(model);
-        data.add(model);
-        data.add(model);
-        data.add(model);
-        data.add(model);
-        data.add(model);
-        data.add(model);
+        data.add(model1);
+        data.add(model2);
+        data.add(model3);
+
 
         result.setData(data);
         view.initTaskListView(result.getData());
@@ -175,11 +199,35 @@ public class HttpMethod {
         model.setCommentList(comments);
         model.setTopicImageList(imageUrl);
 
+        DisccoverMsgModelBean model1 = new DisccoverMsgModelBean();
+        List<String> comments1 = new ArrayList<String>();
+
+        model1.setPublisherPictrueUrl("http://img.my.csdn.net/uploads/201407/26/1406383299_1976.jpg");
+        model1.setPublisher("牛顿真传弟子");
+        model1.setCommentSum(1432);
+        model1.setLightenSum(3230);
+        model1.setTopicTitle("人会预感到死亡吗？");
+        model1.setTopicContent("这个问题我想了很久,非常好奇.问题来源于爷爷的不幸去世.我爷爷年满80," +
+                "于去年元旦因大面积脑梗坚持了一个月后离开了我们.爷爷去世后,奶奶提起了一件让我非常好奇的事," +
+                "就是爷爷病发前半年多有很多异常举动");
+        model1.setWhichTopic("医学");
+        model1.setCommentList(comments);
+        model1.setTopicImageList(imageUrl);
+
+        DisccoverMsgModelBean model2 = new DisccoverMsgModelBean();
+        List<String> comments2 = new ArrayList<String>();
+
+        model2.setPublisherPictrueUrl("http://img.my.csdn.net/uploads/201407/26/1406383290_9329.jpg");
+        model2.setPublisher("豆沙陷的肉包");
+        model2.setCommentSum(1320);
+        model2.setLightenSum(30200);
+        model2.setTopicTitle("什么才是真正的恶？");
+        model2.setTopicContent("什么才叫恶？什么样的事会归为恶事？");
+
         data.add(model);
-        data.add(model);
-        data.add(model);
-        data.add(model);
-        data.add(model);
+        data.add(model1);
+        data.add(model2);
+
 
         result.setData(data);
         view.initDiscoverHotMsgListView(result.getData());
