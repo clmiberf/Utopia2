@@ -1,28 +1,24 @@
 package com.example.socer.utopia2.mvp.ui.fragments.bootomfragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.ActionMenuView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.socer.utopia2.R;
 import com.example.socer.utopia2.adapters.TaskRecyclerViewAdapter;
+import com.example.socer.utopia2.adapters.ViewPagerAdapter;
 import com.example.socer.utopia2.mvp.model.beans.TaskModelBean;
 import com.example.socer.utopia2.mvp.presenter.TaskPresenter;
-import com.example.socer.utopia2.mvp.ui.activities.AddTaskActivity;
+import com.example.socer.utopia2.mvp.ui.fragments.DailyTaskFragment;
+import com.example.socer.utopia2.mvp.ui.fragments.TimeTaskFragment;
 import com.example.socer.utopia2.mvp.ui.fragments.base.BaseFragment;
 import com.example.socer.utopia2.mvp.views.bottomviews.TaskView;
-import com.example.socer.utopia2.shared.SpaceItemDecoration;
 
 import java.util.List;
 
@@ -36,18 +32,23 @@ import butterknife.Unbinder;
  */
 public class TaskFragment extends BaseFragment implements TaskView {
 
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
-    @BindView(R.id.home_task_recyclerview)
-    RecyclerView homeTaskRecyclerview;
-    @BindView(R.id.action_menu_view_left)
-    ActionMenuView actionMenuViewLeft;
-    @BindView(R.id.action_menu_view_right)
-    ActionMenuView actionMenuViewRight;
+    //    @BindView(R.id.toolbar)
+//    Toolbar toolbar;
+//    @BindView(R.id.home_task_recyclerview)
+//    RecyclerView homeTaskRecyclerview;
+//    @BindView(R.id.action_menu_view_left)
+//    ActionMenuView actionMenuViewLeft;
+//    @BindView(R.id.action_menu_view_right)
+//    ActionMenuView actionMenuViewRight;
     Unbinder unbinder;
+    @BindView(R.id.tabLayout)
+    TabLayout tabLayout;
+    @BindView(R.id.viewPager)
+    ViewPager viewPager;
 
     private TaskRecyclerViewAdapter adapter = null;
     private static TaskFragment fragment;
+
     public static TaskFragment newInstance() {
         if (fragment == null) {
             fragment = new TaskFragment();
@@ -55,7 +56,7 @@ public class TaskFragment extends BaseFragment implements TaskView {
         return fragment;
     }
 
-    public static String status ;
+    public static String status;
 
     @Override
     protected int getLayoutId() {
@@ -86,17 +87,17 @@ public class TaskFragment extends BaseFragment implements TaskView {
 
     @Override
     public void initTaskListView(List<TaskModelBean> taskList) {
-        if (status == null){
-            int distance = 7;      //设置recyclerview之间的距离
-            homeTaskRecyclerview.addItemDecoration(new SpaceItemDecoration(distance));
-            status = "true";
-        }
-
-        homeTaskRecyclerview.setHasFixedSize(true);
-        homeTaskRecyclerview.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        adapter = new TaskRecyclerViewAdapter(this.getActivity(),taskList);
-        homeTaskRecyclerview.setAdapter(adapter);
-        homeTaskRecyclerview.addOnScrollListener(onScrollListener);
+//        if (status == null){
+//            int distance = 7;      //设置recyclerview之间的距离
+//            homeTaskRecyclerview.addItemDecoration(new SpaceItemDecoration(distance));
+//            status = "true";
+//        }
+//
+//        homeTaskRecyclerview.setHasFixedSize(true);
+//        homeTaskRecyclerview.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+//        adapter = new TaskRecyclerViewAdapter(this.getActivity(),taskList);
+//        homeTaskRecyclerview.setAdapter(adapter);
+//        homeTaskRecyclerview.addOnScrollListener(onScrollListener);
     }
 
     @Override
@@ -111,26 +112,32 @@ public class TaskFragment extends BaseFragment implements TaskView {
 
     @Override
     public void initToolbar() {
-        actionMenuViewLeft = (ActionMenuView) mFragmentView.findViewById(R.id.action_menu_view_left);
-        getActivity().getMenuInflater().inflate(R.menu.task_menu_left, actionMenuViewLeft.getMenu());
-        actionMenuViewLeft.setOnMenuItemClickListener(new ActionMenuView.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                Log.d("TaskFragment", "在这里设置点击编辑以后的事件");
-                return true;
-            }
-        });
-        actionMenuViewRight = (ActionMenuView) mFragmentView.findViewById(R.id.action_menu_view_right);
-        getActivity().getMenuInflater().inflate(R.menu.task_menu_right, actionMenuViewRight.getMenu());
-        actionMenuViewRight.setOnMenuItemClickListener(new ActionMenuView.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                Log.d("TaskFragment", "在这里设置点击添加以后的事件");
-                Intent intent = new Intent(getActivity(),AddTaskActivity.class);
-                startActivity(intent);
-                return true;
-            }
-        });
+//        actionMenuViewLeft = (ActionMenuView) mFragmentView.findViewById(R.id.action_menu_view_left);
+//        getActivity().getMenuInflater().inflate(R.menu.task_menu_left, actionMenuViewLeft.getMenu());
+//        actionMenuViewLeft.setOnMenuItemClickListener(new ActionMenuView.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                Log.d("TaskFragment", "在这里设置点击编辑以后的事件");
+//                return true;
+//            }
+//        });
+//        actionMenuViewRight = (ActionMenuView) mFragmentView.findViewById(R.id.action_menu_view_right);
+//        getActivity().getMenuInflater().inflate(R.menu.task_menu_right, actionMenuViewRight.getMenu());
+//        actionMenuViewRight.setOnMenuItemClickListener(new ActionMenuView.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                Log.d("TaskFragment", "在这里设置点击添加以后的事件");
+//                Intent intent = new Intent(getActivity(),AddTaskActivity.class);
+//                startActivity(intent);
+//                return true;
+//            }
+//        });
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager(), onScrollListener);
+        adapter.addFragment(new DailyTaskFragment(), "日常任务");
+        adapter.addFragment(new TimeTaskFragment(), "限时任务");
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
+
     }
 
     @Override
